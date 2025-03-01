@@ -10,7 +10,7 @@ gulp.task('clean:vendors', function () {
     ]);
 });
 
-/* Build vendor scripts needed for basic template rendering */
+/*Building vendor scripts needed for basic template rendering*/
 gulp.task('buildBaseVendorScripts', function () {
     return gulp.src([
         '../node_modules/jquery/dist/jquery.min.js',
@@ -22,14 +22,14 @@ gulp.task('buildBaseVendorScripts', function () {
         .pipe(gulp.dest('./assets/vendors/js'));
 });
 
-/* Build vendor styles needed for basic template rendering */
+/*Building vendor styles needed for basic template rendering*/
 gulp.task('buildBaseVendorStyles', function () {
     return gulp.src(['../node_modules/perfect-scrollbar/css/perfect-scrollbar.css'])
         .pipe(concat('vendor.bundle.base.css'))
         .pipe(gulp.dest('./assets/vendors/css'));
 });
 
-/* Scripts for addons */
+/*Scripts for addons*/
 gulp.task('buildOptionalVendorScripts', function () {
     var aScript1 = gulp.src(['../node_modules/chart.js/dist/chart.umd.js'])
         .pipe(gulp.dest('./assets/vendors/chart.js'));
@@ -51,10 +51,11 @@ gulp.task('buildOptionalVendorScripts', function () {
         .pipe(gulp.dest('./assets/vendors/codemirror'));
     var aScript59 = gulp.src(['../node_modules/owl-carousel-2/owl.carousel.min.js'])
         .pipe(gulp.dest('./assets/vendors/owl-carousel-2'));
-    return merge(aScript1, aScript23, aScript29, aScript33, aScript38, aScript39, aScript40, aScript41, aScript42, aScript59);
+    return merge(aScript1, aScript23, aScript29, aScript33, aScript38, aScript39, aScript40, aScript41, aScript42, aScript59)
 });
 
-/* Styles for addons */
+
+/*Styles for addons*/
 gulp.task('buildOptionalVendorStyles', function () {
     var aStyle1 = gulp.src(['../node_modules/@mdi/font/css/materialdesignicons.min.css'])
         .pipe(gulp.dest('./assets/vendors/mdi/css'));
@@ -87,11 +88,11 @@ gulp.task('buildOptionalVendorStyles', function () {
     var aStyle54 = gulp.src(['../node_modules/pwstabs/assets/jquery.pwstabs.min.css'])
         .pipe(gulp.dest('./assets/vendors/pwstabs'));
     var fonts = gulp.src(['./assets/fonts/fonts/*'])
-        .pipe(gulp.dest('./assets/vendors/bootstrap-datepicker/fonts'));
-    return merge(aStyle1, aStyle2, aStyle3, aStyle4, aStyle9, aStyle10, aStyle32, aStyle34, aStyle35, aStyle36, aStyle37, aStyle45, aStyle46, aStyle47, aStyle54, fonts);
+        .pipe(gulp.dest('./assets/vendors/bootstrap-datepicker/fonts'))
+    return merge(aStyle1, aStyle2, aStyle3, aStyle4, aStyle9, aStyle10, aStyle32, aStyle34, aStyle35, aStyle36, aStyle37, aStyle45, aStyle46, aStyle47, aStyle54, fonts)
 });
 
-// Copy essential map files
+//Copy essential map files
 gulp.task('copyMapFiles', function () {
     var map1 = gulp.src('../node_modules/bootstrap/dist/js/bootstrap.min.js.map')
         .pipe(gulp.dest('./assets/vendors/js'));
@@ -100,12 +101,5 @@ gulp.task('copyMapFiles', function () {
     return merge(map1, map2);
 });
 
-/* Sequence for building vendor scripts and styles */
-gulp.task('bundleVendors', gulp.series(
-  'clean:vendors', 
-  'buildBaseVendorStyles', 
-  'buildBaseVendorScripts', 
-  'buildOptionalVendorStyles', 
-  'buildOptionalVendorScripts', 
-  'copyMapFiles'
-));
+/*sequence for building vendor scripts and styles*/
+gulp.task('bundleVendors', gulp.series('clean:vendors', 'buildBaseVendorStyles', 'buildBaseVendorScripts', 'buildOptionalVendorStyles', 'buildOptionalVendorScripts', 'copyMapFiles'));
