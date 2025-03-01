@@ -39,7 +39,7 @@ jobs:
       - name: Build project with Gulp
         run: |
           cd src
-          gulp build-all
+          gulp build
         # Ensure your gulpfile.js defines a "build" task that compiles assets (instead of gulp serve)
 
       - name: Setup GitHub Pages
