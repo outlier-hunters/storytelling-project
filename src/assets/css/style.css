@@ -26286,4 +26286,24 @@ dl li {
   -webkit-flex-grow: 1;
   flex-grow: 1;
 }
+
+/* === Import template variables === */
+/* Custom Logo Size */
+.navbar-brand img {
+  width: 280px;
+  /* Adjust as needed */
+  height: auto;
+  /* Maintain aspect ratio */
+}
+
+.navbar-brand.brand-logo-mini img {
+  width: 100px;
+  /* Adjust for the mini logo */
+  height: auto;
+}
+
+.navbar .navbar-brand-wrapper .navbar-brand img {
+  width: 280px !important; /* Adjust as needed */
+  height: auto !important; /* Maintain aspect ratio */
+}
 /*# sourceMappingURL=maps/style.css.map */

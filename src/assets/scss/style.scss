@@ -186,3 +186,8 @@
 @import './sidebar';
 @import './layouts';
 @import 'vertical/vertical-wrapper';
+
+
+/* === Import template variables === */
+@import "custom/_custom-variables";
+@import "custom/_custom";
